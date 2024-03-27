@@ -5,7 +5,7 @@ Tuttavia, ci siamo mai chiesti come possa il sistema operativo, ed in particolar
 É dunque evidente che il sistema operativo compie un enorme lavoro per la gestione della memoria; per cercare di semplificare questo concetto ho pensato ad una metafora interessante.
 </p>
 
-<h2> E se la memoria centrale fosse un quaderno?  <h2>
+<h2> E se la memoria centrale fosse un quaderno?  </h2>
 <p>
 Immaginiamo che all'accensione del nostro calcolatore la memoria sia inizializzata a 0 (cioé tutti gli indirizzi di memoria contengono degli 0) e che il nostro ruolo sia quello del kernel del sistema operativo. Come possiamo permettere l'allocazione di memoria da parte di un processo che vorrebbe essere eseguito? <br />
 La soluzione più banale sarebbe quella di prendere un indirizzo della memoria che sappiamo essere vuoto (come lo sappiamo?) e lo diamo al processo. Il processo può occupare n bytes di memoria a partire da quell'indirizzo. Un programma molto stupido potrebbe ad esempio allocare 6 bytes di memoria all'indirizzo 0xf400 e poi terminare l'esecuzione. <br />
