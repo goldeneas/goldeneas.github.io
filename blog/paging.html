@@ -1,0 +1,14 @@
+<h1> Paging della memoria </h1>
+<p>
+La memoria centrale di un calcolatore è sostanzialmente un'enorme insieme di 0 ed 1 che da soli non hanno alcun senso. Attraverso la codifica di questi numeri ci è possibile conservare dell'informazione che può essere usata dai processi del nostro computer. <br />
+Tuttavia, ci siamo mai chiesti come possa il sistema operativo, ed in particolare il kernel, tener conto di quale zona della memoria é assegnata a quale processo attualmente in corso? Se un processo deve essere creato, quale zona della memoria deve essere assegnata a quel processo? È una zona libera o ci sono altri dati che non possiamo eliminare? E se un altro processo deve essere eliminato? Quale zona della memoria può essere "riciclata" e riassegnata ad un nuovo processo? <br />
+É dunque evidente che il sistema operativo compie un enorme lavoro per la gestione della memoria; per cercare di semplificare questo concetto ho pensato ad una metafora interessante.
+</p>
+
+<h2> E se la memoria centrale fosse un quaderno?  <h2>
+<p>
+Immaginiamo che all'accensione del nostro calcolatore la memoria sia inizializzata a 0 (cioé tutti gli indirizzi di memoria contengono degli 0) e che il nostro ruolo sia quello del kernel del sistema operativo. Come possiamo permettere l'allocazione di memoria da parte di un processo che vorrebbe essere eseguito? <br />
+La soluzione più banale sarebbe quella di prendere un indirizzo della memoria che sappiamo essere vuoto (come lo sappiamo?) e lo diamo al processo. Il processo può occupare n bytes di memoria a partire da quell'indirizzo. Un programma molto stupido potrebbe ad esempio allocare 6 bytes di memoria all'indirizzo 0xf400 e poi terminare l'esecuzione. <br />
+Tralasciando l'inutilità disarmante del processo appena menzionato, sorge fin da subito un grande problema: come facciamo a ""pulire"" quella parte di memoria e a riutilizzarla per un altro processo? Dovremmo tener conto in qualche modo di quale processo abbia usato quella memoria, dell'indirizzo che gli abbiamo assegnato e di quanti byte quel processo abbia effettivamente utilizzato. <br />
+Una soluzione inefficace (seppur funzionante) sarebbe quella di aggiungere all'inizio dell'indirizzo dell'informazione extra, di cui il processo non deve (per forza) essere a conoscenza. Ad esempio, quando il processo ci chiede di allocare della memoria, internamente scegliamo l'indirizzo 0xf400 come precedentemente, MA questa volta prima di dare l'indirizzo e la libertà al processo di fare quello che vuole poniamo un header utilizzato internamente all'inizio dell'indirizzo.
+</p>
