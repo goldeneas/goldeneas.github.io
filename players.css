@@ -1,0 +1,26 @@
+th, td {
+    border: 1px solid black;
+    padding: 5px 15px 5px 15px;
+}
+
+table {
+    border: 1px double black;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+h1 {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.online-status {
+    color: white;
+    background-color: green;
+    background-size: 80% 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+
+    border-radius: 3px;
+
+    padding: 5px 10px;
+    margin: 0 10px;
+}
